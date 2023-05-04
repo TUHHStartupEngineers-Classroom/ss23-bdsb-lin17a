@@ -1,0 +1,14 @@
+{
+  "hash": "24ca4f9602791e004606e3de11267a9a",
+  "result": {
+    "markdown": "---\ntitle: \"My Lab Journal\"\nsubtitle: \"Business Data Science Basics\"\nauthor: \"Lina Meyer\"\n---\n\n\n![](assets/logo/TIE_logo.svg){width=80% fig-align=\"center\"}\n\nThis is a template example for lab journaling. Students in the data science courses at the Institute of Entrepreneurship will use this template to learn R for business analytics. Students can replace this text as they wish.\n\n## How to use\n\n1. Accept the assignment and get your own github repo.\n\n2. Blog/journal what you are doing in R, by editing the `.qmd` files. \n\n3. See the links page for lots of helpful links on learning R.\n\n4. Change everything to make it your own.\n\n5. Make sure to render you website everytime before you want to upload changes\n\n\n## Content\n\n\n\n::: {.cell hash='index_cache/html/plot1_79c90308f0e743af83f04729c38fc550'}\n::: {.cell-output-display}\n![Canyons Bike Sale Revenue by State](index_files/figure-html/plot1-1.png){width=960}\n:::\n:::\n\n::: {.cell hash='index_cache/html/plot2_24f5bc9ba2f48c616edc8b02faf40995'}\n::: {.cell-output-display}\n![Canyons Bike Sale Revenue by Year and State](index_files/figure-html/plot2-1.png){width=960}\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

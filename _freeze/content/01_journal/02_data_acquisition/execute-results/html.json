@@ -1,0 +1,18 @@
+{
+  "hash": "f020f497fc713e381cec9478d573e63c",
+  "result": {
+    "markdown": "---\ntitle: \"Data Acquisition\"\nauthor: \"Lina Meyer\"\n---\n\n::: {.cell hash='02_data_acquisition_cache/html/unnamed-chunk-1_c2572f28769b2a479abb37819b3d3cd4'}\nOn the 04.05.23 at 21:45 it was Cloudy in Hamburg[![](http://openweathermap.org/img/wn/03d@2x.png)](http://openweathermap.org)|                      |                         |  \n|:---------------------|------------------------:|\n| temperature          | 11.3 °C          |  \n| apparent temperature | 7.9 °C |\n| relative humidity    | 64 %            |  \n| rain                 | 0 mm          |\n| wind speed           | 15 km/h        |\n| wind direction       | 60 °        |\n:::\n\n\nTemperature Forecast for the next week was:\n\n::: {.cell hash='02_data_acquisition_cache/html/plot_439ce9d398492f7a2c2b9a159a08f6bf'}\n::: {.cell-output-display}\n![](02_data_acquisition_files/figure-html/plot-1.png){width=672}\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../../site_libs/pagedtable-1.1/css/pagedtable.css\" rel=\"stylesheet\" />\n<script src=\"../../site_libs/pagedtable-1.1/js/pagedtable.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
