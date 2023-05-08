@@ -39,8 +39,15 @@ curr_apparent_temp <- weather_json[["hourly"]][["apparent_temperature"]][[curr_i
 curr_rain <- weather_json[["hourly"]][["rain"]][[curr_idx]]
 curr_wcode <- weather_json[["hourly"]][["weathercode"]][[curr_idx]]
 curr_wind <- weather_json[["hourly"]][["windspeed_10m"]][[curr_idx]]
-curr_winddir <- weather_json[["hourly"]][["winddirection_10m"]][[curr_idx]] %>% 
-                cimis_degrees_to_compass()
+curr_winddir <- weather_json[["hourly"]][["winddirection_10m"]][[curr_idx]]
+
+wind_dirs <- setNames( seq(0, 337.5 , by=22.5), 
+                 c("N","NNE","NE", "ENE", "E", "ESE", "SE", "SSE", 
+                   "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"))
+
+match(10, wind_dirs)
+wind_dirs[10]
+          
 
 curr_weather_img <- weather_imgs[[as.character(curr_wcode)]][["day"]][["image"]]
 
