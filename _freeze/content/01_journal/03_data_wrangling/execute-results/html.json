@@ -1,0 +1,18 @@
+{
+  "hash": "03d7d7f0d309d65a59f2beef44ec3e68",
+  "result": {
+    "markdown": "---\ntitle: \"Data Wrangling\"\nauthor: \"Lina Meyer\"\n---\n\n::: {.cell hash='03_data_wrangling_cache/html/unnamed-chunk-1_093550b6f1e28544ed73c82df8a1c713'}\n\n:::\n\n10 US Companies with the Most Assigned/Granted Patents:\n\n::: {.cell hash='03_data_wrangling_cache/html/unnamed-chunk-2_9e7f8eecdff642df8fcb385f7e42ebe9'}\n::: {.cell-output-display}\n`````{=html}\n<div data-pagedtable=\"false\">\n  <script data-pagedtable-source type=\"application/json\">\n{\"columns\":[{\"label\":[\"organization\"],\"name\":[1],\"type\":[\"chr\"],\"align\":[\"left\"]},{\"label\":[\"sum_claims\"],\"name\":[2],\"type\":[\"dbl\"],\"align\":[\"right\"]}],\"data\":[{\"1\":\"International Business Machines Corporation\",\"2\":\"122231\"},{\"1\":\"Samsung Electronics Co., Ltd.\",\"2\":\"91821\"},{\"1\":\"QUALCOMM Incorporated\",\"2\":\"87814\"},{\"1\":\"Google Inc.\",\"2\":\"54881\"},{\"1\":\"Microsoft Corporation\",\"2\":\"53989\"},{\"1\":\"Canon Kabushiki Kaisha\",\"2\":\"51319\"},{\"1\":\"Sony Corporation\",\"2\":\"47985\"},{\"1\":\"Apple Inc.\",\"2\":\"44339\"},{\"1\":\"Kabushiki Kaisha Toshiba\",\"2\":\"36149\"},{\"1\":\"General Electric Company\",\"2\":\"32531\"}],\"options\":{\"columns\":{\"min\":{},\"max\":[10]},\"rows\":{\"min\":[10],\"max\":[10]},\"pages\":{}}}\n  </script>\n</div>\n`````\n:::\n:::\n\n\nTop 10 Companies with the Most New Granted Patents for August 2014:\n\n::: {.cell hash='03_data_wrangling_cache/html/unnamed-chunk-3_15f9b0f8b797bd062aa02deded19b060'}\n::: {.cell-output-display}\n`````{=html}\n<div data-pagedtable=\"false\">\n  <script data-pagedtable-source type=\"application/json\">\n{\"columns\":[{\"label\":[\"organization\"],\"name\":[1],\"type\":[\"chr\"],\"align\":[\"left\"]},{\"label\":[\"sum_claims\"],\"name\":[2],\"type\":[\"dbl\"],\"align\":[\"right\"]}],\"data\":[{\"1\":\"International Business Machines Corporation\",\"2\":\"11568\"},{\"1\":\"Samsung Electronics Co., Ltd.\",\"2\":\"8415\"},{\"1\":\"QUALCOMM Incorporated\",\"2\":\"7449\"},{\"1\":\"Microsoft Corporation\",\"2\":\"5487\"},{\"1\":\"Google Inc.\",\"2\":\"4958\"},{\"1\":\"Canon Kabushiki Kaisha\",\"2\":\"4567\"},{\"1\":\"Sony Corporation\",\"2\":\"3954\"},{\"1\":\"Apple Inc.\",\"2\":\"3952\"},{\"1\":\"Telefonaktiebolaget LM Ericsson (Publ)\",\"2\":\"3347\"},{\"1\":\"Intel Corporation\",\"2\":\"3085\"}],\"options\":{\"columns\":{\"min\":{},\"max\":[10]},\"rows\":{\"min\":[10],\"max\":[10]},\"pages\":{}}}\n  </script>\n</div>\n`````\n:::\n:::\n\n\nTop 5 USPTO Tech Main Classes for the Top 10 Companies with the Most Patents:\n\n::: {.cell hash='03_data_wrangling_cache/html/unnamed-chunk-4_6698b48b1e2b59e61017c1adbd7bd3b5'}\n::: {.cell-output-display}\n`````{=html}\n<div data-pagedtable=\"false\">\n  <script data-pagedtable-source type=\"application/json\">\n{\"columns\":[{\"label\":[\"mainclass_id\"],\"name\":[1],\"type\":[\"chr\"],\"align\":[\"left\"]},{\"label\":[\"N\"],\"name\":[2],\"type\":[\"int\"],\"align\":[\"right\"]}],\"data\":[{\"1\":\"257\",\"2\":\"7395\"},{\"1\":\"455\",\"2\":\"5660\"},{\"1\":\"370\",\"2\":\"4470\"},{\"1\":\"709\",\"2\":\"4149\"},{\"1\":\"348\",\"2\":\"3784\"}],\"options\":{\"columns\":{\"min\":{},\"max\":[10]},\"rows\":{\"min\":[10],\"max\":[10]},\"pages\":{}}}\n  </script>\n</div>\n`````\n:::\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../../site_libs/pagedtable-1.1/css/pagedtable.css\" rel=\"stylesheet\" />\n<script src=\"../../site_libs/pagedtable-1.1/js/pagedtable.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

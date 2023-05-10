@@ -1,13 +1,3 @@
----
-title: "Data Wrangling"
-author: "Lina Meyer"
----
-
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
-
 # Tidyverse
 library(tidyverse)
 library(vroom)
@@ -46,7 +36,7 @@ col_types_uspc <- list(
 
 # load data
 patent_tbl <- vroom(
-  file       = "../../patent.tsv", 
+  file       = "patent.tsv", 
   delim      = "\t", 
   col_types  = col_types_patent,
   na         = c("", "NA", "NULL")
@@ -54,21 +44,21 @@ patent_tbl <- vroom(
 
 
 assignee_tbl <- vroom(
-  file       = "../../assignee.tsv", 
+  file       = "assignee.tsv", 
   delim      = "\t", 
   col_types  = col_types_assignee,
   na         = c("", "NA", "NULL")
 )
 
 patent_asignee_tbl <- vroom(
-  file       = "../../patent_assignee.tsv", 
+  file       = "patent_assignee.tsv", 
   delim      = "\t", 
   col_types  = col_types_patent_assignee,
   na         = c("", "NA", "NULL")
 )
 
 uspc_tbl <- vroom(
-  file       = "../../uspc.tsv", 
+  file       = "uspc.tsv", 
   delim      = "\t", 
   col_types  = col_types_uspc,
   na         = c("", "NA", "NULL")
@@ -82,6 +72,8 @@ setDT(uspc_tbl)
 
 # merge the data
 
+class(patent_tbl)
+
 patent_asignee_merged_tbl <- merge(x = patent_tbl, y = patent_asignee_tbl, 
                                    by.x = "id",
                                    by.y = "patent_id",
@@ -94,40 +86,17 @@ patent_asignee_merged_tbl <- merge(x = patent_asignee_merged_tbl, y = assignee_t
                                     all.x = TRUE, 
                                     all.y = FALSE)
 
-```
-10 US Companies with the Most Assigned/Granted Patents:
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
+class(patent_asignee_merged_tbl)
 
 top_10_all_time <- patent_asignee_merged_tbl[!is.na(organization), .(sum_claims = sum(num_claims)), 
                                              by = "organization"][
                                              order(sum_claims, decreasing = TRUE)] %>%
                                              head(10)
-top_10_all_time
-```
-
-Top 10 Companies with the Most New Granted Patents for August 2014:
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
 
 top_10_august_2014 <- patent_asignee_merged_tbl[(!is.na(organization) & lubridate::month(date, label = T, abbr = F) == "August" & 
-                          lubridate::year(date) == 2014), 
-                          .(sum_claims = sum(num_claims)), 
-                          by = "organization"][
-                          order(sum_claims, decreasing = TRUE)] %>%
+                          lubridate::year(date) == 2014), sum(num_claims), by = "organization"][
+                          order(V1, decreasing = TRUE)] %>%
                           head(10)
-top_10_august_2014
-```
-
-Top 5 USPTO Tech Main Classes for the Top 10 Companies with the Most Patents:
-```{r}
-#| echo: false
-#| message: false
-#| warning: false
                           
 top_10_all_time_uspc <- merge(x = patent_asignee_merged_tbl[organization %in% top_10_all_time$organization],
       y = uspc_tbl,
@@ -138,4 +107,5 @@ top_10_all_time_uspc <- merge(x = patent_asignee_merged_tbl[organization %in% to
 
 top_10_all_time_uspc[!is.na(mainclass_id), .N, by = mainclass_id][order(N, decreasing = TRUE)][1:5]
 
-```
+
+
