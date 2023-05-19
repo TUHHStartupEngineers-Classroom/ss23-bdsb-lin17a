@@ -1,0 +1,18 @@
+{
+  "hash": "77646e15281e5c98edd734188b062fba",
+  "result": {
+    "markdown": "---\ntitle: \"Data Visualization\"\nauthor: \"Lina Meyer\"\n---\n\n::: {.cell hash='04_data_visualization_cache/html/plot_e33495cc5ca235180b9d2d2ee66d552b'}\n::: {.cell-output-display}\n![](04_data_visualization_files/figure-html/plot-1.png){width=672}\n:::\n:::\n\n::: {.cell hash='04_data_visualization_cache/html/plot2_1da73f48771d76b27caca304c3666d07'}\n::: {.cell-output-display}\n![](04_data_visualization_files/figure-html/plot2-1.png){width=960}\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"../../site_libs/pagedtable-1.1/css/pagedtable.css\" rel=\"stylesheet\" />\n<script src=\"../../site_libs/pagedtable-1.1/js/pagedtable.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

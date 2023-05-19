@@ -1,8 +1,115 @@
 ---
 title: "Data Visualization"
-author: "Joschka Schwarz"
+author: "Lina Meyer"
 ---
 
-::: callout-note
-You can delete everything in here and start fresh.
-:::
+```{r plot, dev.args = list(bg = 'transparent')}
+#| echo: false
+#| message: false
+#| warning: false
+library(tidyverse)
+library(ggplot2)
+library(ggdark)
+library(scales)
+
+covid_data_tbl <- read_csv("https://covid.ourworldindata.org/data/owid-covid-data.csv")
+
+# plot cumulative cases of some countries
+covid_data_tbl %>% 
+      # filter countries
+      filter(location %in% c("Germany", "United Kingdom", "France", "Spain", "United States")) %>%
+  
+      # fill NA with zeros
+      mutate_at("total_cases", ~replace_na(.,0)) %>%
+  
+      # plot total cases per country
+      ggplot(aes(x = date, y = total_cases, color = location)) +
+      geom_line(linewidth = 0.5) + 
+
+      # set theme
+      dark_theme_dark() + 
+      theme(panel.background = element_rect(fill='transparent'),
+      plot.background = element_rect(fill='transparent', color=NA),
+      legend.background = element_rect(fill='transparent'),
+      legend.box.background = element_rect(size=0, fill='transparent')) +
+      theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+      theme(legend.position="bottom",
+            legend.key=element_blank()) +
+
+      # set scale
+      scale_x_date(date_labels = "%B '%y", date_breaks = "month", minor_breaks = NULL) + 
+      scale_y_continuous(labels = scales::label_number(scale = 0.000001, suffix = " M")) + 
+  
+      # set legend
+      labs(
+        title = "COVID-19 confirmed cases worldwide",
+        subtitle = "As of 11/05/2023",
+        x = "",
+        y = "Cumulative Cases",
+        color = "Continent / Country" # Legend text
+      )
+    
+
+```
+
+```{r plot2, dev.args = list(bg = 'transparent'), fig.width=10, fig.height=5.5}
+#| echo: false
+#| message: false
+#| warning: false
+
+# plot mortality rate on world map
+world <- map_data("world")
+
+covid_data_tbl_prepared <- covid_data_tbl %>% 
+    select(c("location", "total_deaths_per_million")) %>%
+    # fill NA with zeros
+    mutate_at("total_deaths_per_million", ~replace_na(.,0)) %>%
+  
+    # get mortality rate per country
+    group_by(location) %>%
+    summarize(mortality_rate = max(total_deaths_per_million) / 10000000) %>%
+  
+    # rename location  for world_tbl
+    mutate(location = case_when(
+    
+      location == "United Kingdom" ~ "UK",
+      location == "United States" ~ "USA",
+      location == "Democratic Republic of Congo" ~ "Democratic Republic of the Congo",
+      TRUE ~ location
+    
+    )) %>%
+    distinct()
+
+# join covid and world map data
+covid_world_data_tbl <- world %>%
+                        left_join(covid_data_tbl_prepared, by = c("region" = "location")) 
+
+
+covid_world_data_tbl %>% ggplot(aes(long, lat, group, map_id = region, fill = mortality_rate)) +
+  
+   # set colors and percent scale
+   scale_fill_gradient(
+    low = "#f7968f",
+    high = "#8f0b01",
+    labels = scales::percent) +
+  
+   geom_map(map = covid_world_data_tbl) +
+   expand_limits(x = covid_world_data_tbl$long, y = covid_world_data_tbl$lat) +
+  
+   # set theme (transparent background, no grid, no axis)
+   dark_theme_dark() + 
+   theme(panel.grid.major = element_blank(), 
+         panel.grid.minor = element_blank(),
+         panel.background = element_rect(fill='transparent'),
+         plot.background = element_rect(fill='transparent', color=NA),
+         legend.background = element_rect(fill='transparent'),
+         axis.text=element_blank(),
+         axis.ticks=element_blank(),
+         axis.title=element_blank()) +
+  
+   # set title
+   labs(
+        title = "Confirmed COVID-19 deaths relative to the size of the population",
+        subtitle = "As of 11/05/2023")
+
+```
