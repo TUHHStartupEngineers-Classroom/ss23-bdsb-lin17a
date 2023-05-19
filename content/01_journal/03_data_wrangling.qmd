@@ -1,8 +1,141 @@
 ---
 title: "Data Wrangling"
-author: "Joschka Schwarz"
+author: "Lina Meyer"
 ---
 
-::: callout-note
-You can delete everything in here and start fresh.
-:::
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+# Tidyverse
+library(tidyverse)
+library(vroom)
+
+# Data Table
+library(data.table)
+
+# Counter
+library(tictoc)
+library(lubridate)
+
+
+# define col types
+col_types_patent <- list(
+  id = col_character(),
+  date = col_date("%Y-%m-%d"),
+  num_claims = col_double()
+)
+
+col_types_assignee <- list(
+  id = col_character(),
+  type = col_character(),
+  organization = col_character()
+)
+
+col_types_patent_assignee <- list(
+  patent_id = col_character(),
+  assignee_id = col_character()
+)
+
+col_types_uspc <- list(
+  patent_id = col_character(),
+  mainclass_id = col_character(),
+  sequence = col_integer()
+)
+
+# load data
+patent_tbl <- vroom(
+  file       = "../../patent.tsv", 
+  delim      = "\t", 
+  col_types  = col_types_patent,
+  na         = c("", "NA", "NULL")
+)
+
+
+assignee_tbl <- vroom(
+  file       = "../../assignee.tsv", 
+  delim      = "\t", 
+  col_types  = col_types_assignee,
+  na         = c("", "NA", "NULL")
+)
+
+patent_asignee_tbl <- vroom(
+  file       = "../../patent_assignee.tsv", 
+  delim      = "\t", 
+  col_types  = col_types_patent_assignee,
+  na         = c("", "NA", "NULL")
+)
+
+uspc_tbl <- vroom(
+  file       = "../../uspc.tsv", 
+  delim      = "\t", 
+  col_types  = col_types_uspc,
+  na         = c("", "NA", "NULL")
+)
+
+# convert to data.table
+setDT(assignee_tbl)
+setDT(patent_tbl)
+setDT(patent_asignee_tbl)
+setDT(uspc_tbl)
+
+# merge the data
+
+patent_asignee_merged_tbl <- merge(x = patent_tbl, y = patent_asignee_tbl, 
+                                   by.x = "id",
+                                   by.y = "patent_id",
+                                   all.x = TRUE, 
+                                   all.y = FALSE)
+
+patent_asignee_merged_tbl <- merge(x = patent_asignee_merged_tbl, y = assignee_tbl,
+                                    by.x = "assignee_id",
+                                    by.y = "id", 
+                                    all.x = TRUE, 
+                                    all.y = FALSE)
+
+```
+10 US Companies with the Most Assigned/Granted Patents:
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+top_10_all_time <- patent_asignee_merged_tbl[!is.na(organization), .(sum_claims = sum(num_claims)), 
+                                             by = "organization"][
+                                             order(sum_claims, decreasing = TRUE)] %>%
+                                             head(10)
+top_10_all_time
+```
+
+Top 10 Companies with the Most New Granted Patents for August 2014:
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+top_10_august_2014 <- patent_asignee_merged_tbl[(!is.na(organization) & lubridate::month(date, label = T, abbr = F) == "August" & 
+                          lubridate::year(date) == 2014), 
+                          .(sum_claims = sum(num_claims)), 
+                          by = "organization"][
+                          order(sum_claims, decreasing = TRUE)] %>%
+                          head(10)
+top_10_august_2014
+```
+
+Top 5 USPTO Tech Main Classes for the Top 10 Companies with the Most Patents:
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+                          
+top_10_all_time_uspc <- merge(x = patent_asignee_merged_tbl[organization %in% top_10_all_time$organization],
+      y = uspc_tbl,
+      by.x = "id",
+      by.y = "patent_id",
+      all.x = TRUE,
+      all.y = FALSE)
+
+top_10_all_time_uspc[!is.na(mainclass_id), .N, by = mainclass_id][order(N, decreasing = TRUE)][1:5]
+
+```

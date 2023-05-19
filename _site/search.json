@@ -7,11 +7,11 @@
     "text": "R is a free open-source programming language that can be used for statistical analysis, data-simulation, graphing, and lots of other stuff. Another free program is R-studio, that provides a nice graphic interface for R. Download R first, then download R-studio. Both can run on PCs, Macs or Linux. Students will be learning R in the stats labs using the lab manual .\n\n\n\n\nGoogle is great, Google your problem\nStackoverflow is great, google will often take you there because someone has already asked your question, and someone else has answered, usually many people have answered your question many ways."
   },
   {
-    "objectID": "content/01_journal/03_data_wrangling.html",
-    "href": "content/01_journal/03_data_wrangling.html",
-    "title": "Data Wrangling",
+    "objectID": "content/02_notes/05_class_notes.html",
+    "href": "content/02_notes/05_class_notes.html",
+    "title": "Class Notes",
     "section": "",
-    "text": "Note\n\n\n\nYou can delete everything in here and start fresh."
+    "text": "IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.\nThis is an .qmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header.\nThis is a .qmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
     "objectID": "content/01_journal/04_data_visualization.html",
@@ -25,7 +25,7 @@
     "href": "content/01_journal/01_tidyverse.html",
     "title": "Tidyverse",
     "section": "",
-    "text": "Note\n\n\n\nYou can delete everything in here and start fresh.\nThis is a .qmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Canyons Bike Sale Revenue by State\n\n\n\n\n\n\n\n\nCanyons Bike Sale Revenue by Year and State"
   },
   {
     "objectID": "content/01_journal/01_tidyverse.html#header-2",
@@ -35,18 +35,18 @@
     "text": "2.1 Header 2\nHeader 3\nHeader 4\nHeader 5\nHeader 6"
   },
   {
+    "objectID": "content/01_journal/03_data_wrangling.html",
+    "href": "content/01_journal/03_data_wrangling.html",
+    "title": "Data Wrangling",
+    "section": "",
+    "text": "10 US Companies with the Most Assigned/Granted Patents:\n\n\n\n\n  \n\n\n\nTop 10 Companies with the Most New Granted Patents for August 2014:\n\n\n\n\n  \n\n\n\nTop 5 USPTO Tech Main Classes for the Top 10 Companies with the Most Patents:"
+  },
+  {
     "objectID": "content/01_journal/02_data_acquisition.html",
     "href": "content/01_journal/02_data_acquisition.html",
     "title": "Data Acquisition",
     "section": "",
-    "text": "Note\n\n\n\nYou can delete everything in here and start fresh."
-  },
-  {
-    "objectID": "content/02_notes/05_class_notes.html",
-    "href": "content/02_notes/05_class_notes.html",
-    "title": "Class Notes",
-    "section": "",
-    "text": "IMPORTANT: You can delete everything in here and start fresh. You might want to start by not deleting anything above this line until you know what that stuff is doing.\nThis is an .qmd file. It is plain text with special features. Any time you write just like this, it will be compiled to normal text in the website. If you put a # in front of your text, it will create a top level-header."
+    "text": "1 Weather\n\n\n\nOn the 04.05.23 at 21:45 it was Cloudy in Hamburg\n\n\n\n\n\ntemperature\n11.3 °C\n\n\napparent temperature\n7.9 °C\n\n\nrelative humidity\n64 %\n\n\nrain\n0 mm\n\n\nwind speed\n15 km/h\n\n\nwind direction\n60 °\n\n\n\n\nTemperature Forecast for the next week was:\n\n\n\n\n\n\n\n\n\n2 Radon Bikes"
   },
   {
     "objectID": "index.html",
@@ -61,5 +61,19 @@
     "title": "My Lab Journal",
     "section": "How to use",
     "text": "How to use\n\nAccept the assignment and get your own github repo.\nBlog/journal what you are doing in R, by editing the .qmd files.\nSee the links page for lots of helpful links on learning R.\nChange everything to make it your own.\nMake sure to render you website everytime before you want to upload changes"
+  },
+  {
+    "objectID": "index.html#content",
+    "href": "index.html#content",
+    "title": "My Lab Journal",
+    "section": "Content",
+    "text": "Content\n\n\n\n\n\nCanyons Bike Sale Revenue by State\n\n\n\n\n\n\n\n\n\nCanyons Bike Sale Revenue by Year and State"
+  },
+  {
+    "objectID": "content/02_notes/05_class_notes.html#header-2",
+    "href": "content/02_notes/05_class_notes.html#header-2",
+    "title": "Class Notes",
+    "section": "Header 2",
+    "text": "Header 2\n\nHeader 3\n\nHeader 4\n\nHeader 5\n\nHeader 6"
   }
 ]
